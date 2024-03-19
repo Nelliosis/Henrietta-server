@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+  database:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - henrietta_db:/var/lib/postgresql/data
+
+volumes:
+  henrietta_db:
+    driver: local
