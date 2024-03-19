@@ -10,6 +10,6 @@ const port = 3000
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/ping', ping)
+app.post('/ping', ping)
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
