@@ -4,8 +4,11 @@ The Discord bot, as a backend server
 
 # TODO
 
-1. Move over music commands
-2. Create database config, prep for dockerised DB
-3. Create migrations, models, seeds
-4. Discord Auth
-5. UI?
+| TODO                                              | STATUS                |
+| --------                                          | --------              |
+| Move over music commands                          | :hourglass:           |
+| Create database config, prep for dockerised DB    | :hourglass:           |
+| Create migrations, models, seeds                  | :hourglass:           |
+| Music Commands into Routes                        | :hourglass:           |
+| Discord Auth                                      | :white_check_mark:    |
+| UI?                                               | :hourglass:           |
