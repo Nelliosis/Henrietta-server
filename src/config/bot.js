@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const { token } = process.env;
+const { BOT_TOKEN } = process.env;
 
 const myIntents = new IntentsBitField();
 myIntents.add(
@@ -21,6 +21,6 @@ client.once('ready', () => {
 });
 
 // Login to Discord with your app's token
-client.login(token);
+client.login(BOT_TOKEN);
 
 export { client }
