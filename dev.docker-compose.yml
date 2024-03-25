@@ -5,22 +5,28 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
+    container_name: henrietta_backend
     volumes:
       - .:/app
+    env_file:
+      - .env
     ports:
       - 3000:3000
     depends_on:
       - database
+    restart: on-failure
   database:
     image: postgres:latest
+    container_name: henrietta_db
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
     volumes:
       - henrietta_db:/var/lib/postgresql/data
+    restart: always
 
 volumes:
   henrietta_db:
