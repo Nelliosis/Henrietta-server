@@ -1,5 +1,7 @@
 FROM node:lts-iron
 
+RUN apt update && apt install -y netcat-traditional
+
 WORKDIR /app
 
 COPY package*.json ./
@@ -10,4 +12,8 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start:dev"]
+COPY ./entrypoint.sh /
+
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
